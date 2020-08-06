@@ -24,6 +24,7 @@ import java.util.stream.Collectors;
  * Output:
  * [2,3]
  */
+
 public class DuplicatesInArray {
     public List<Integer> findDuplicates(int[] nums) {
         final Set<Integer> numbers = new HashSet<>();
