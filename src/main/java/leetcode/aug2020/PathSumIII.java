@@ -48,9 +48,7 @@ public class PathSumIII {
         }
         final int current = sum - root.val == 0 ?
                 1 :
-                while(root.left !=null){
-
-                }
+                pathSum(root.left, sum - root.val) + pathSum(root.right, sum - root.val);
 
         return current
                 + pathSum(root.left, sum)
