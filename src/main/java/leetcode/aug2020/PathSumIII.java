@@ -68,9 +68,6 @@ class TreeNode {
     TreeNode left;
     TreeNode right;
 
-    TreeNode() {
-    }
-
     TreeNode(int val) {
         this.val = val;
     }
@@ -79,14 +76,5 @@ class TreeNode {
         this.val = val;
         this.left = left;
         this.right = right;
-    }
-
-    @Override
-    public String toString() {
-        return "TreeNode{" +
-                "val=" + val +
-                ", left=" + left +
-                ", right=" + right +
-                '}';
     }
 }
