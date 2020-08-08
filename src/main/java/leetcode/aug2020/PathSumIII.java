@@ -37,22 +37,24 @@ Return 3. The paths that sum to 8 are:
 
 public class PathSumIII {
     public int pathSum(TreeNode root, int sum) {
-        final Integer integer = root == null ? null : root.val;
         if (Objects.isNull(root)) {
             return 0;
         }
-
-        if (sum - root.val == 0){
-            System.out.println("node: " + root + "sum: " + sum);
-
-        }
-        final int current = sum - root.val == 0 ?
-                1 :
-                pathSum(root.left, sum - root.val) + pathSum(root.right, sum - root.val);
+        final int current = nodeSum(root, sum);
 
         return current
                 + pathSum(root.left, sum)
                 + pathSum(root.right, sum);
+    }
+
+    private int nodeSum(TreeNode root, int sum) {
+        if (Objects.isNull(root)) {
+            return 0;
+        }
+
+        final int newSum = sum - root.val;
+        final int possibleCount = nodeSum(root.left, newSum) + nodeSum(root.right, newSum);
+        return newSum == 0 ? 1 + possibleCount: possibleCount;
     }
 }
 
