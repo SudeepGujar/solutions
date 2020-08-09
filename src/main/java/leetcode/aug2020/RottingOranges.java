@@ -1,7 +1,5 @@
 package leetcode.aug2020;
 
-import java.util.Arrays;
-
 /**
  * https://leetcode.com/explore/challenge/card/august-leetcoding-challenge/550/week-2-august-8th-august-14th/3418/
  * <p>
@@ -74,7 +72,7 @@ public class RottingOranges {
             orangesSpoiled = getOrangesSpoiled(grid, minutes);
             totalOrangesSpoiled += orangesSpoiled;
         } while (orangesSpoiled != 0);
-        return goodOrange == totalOrangesSpoiled ? minutes-1 : -1 ;
+        return goodOrange == totalOrangesSpoiled ? minutes - 1 : -1;
     }
 
     private int getOrangesSpoiled(int[][] grid, int minutes) {
