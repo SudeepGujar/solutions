@@ -9,10 +9,7 @@ import java.util.stream.Collectors;
 public class OnesAndZeroes {
     public int findMaxForm(String[] strs, int m, int n) {
         final int maxLength = m + n;
-        final List<String> list = Arrays.stream(strs)
-                .filter(s -> s.length() < maxLength)
-                .sorted(Comparator.comparingInt(String::length))
-                .collect(Collectors.toList());
+        final List<String> list = getSortedList(strs, maxLength);
         int ans = 0;
         final int size = list.size();
         for (int i = 0; i < size && (m > 0 || n > 0); i++) {
@@ -27,5 +24,12 @@ public class OnesAndZeroes {
             }
         }
         return ans;
+    }
+
+    private List<String> getSortedList(String[] strs, int maxLength) {
+        return Arrays.stream(strs)
+                .filter(s -> s.length() < maxLength)
+                .sorted(Comparator.comparingInt(String::length))
+                .collect(Collectors.toList());
     }
 }

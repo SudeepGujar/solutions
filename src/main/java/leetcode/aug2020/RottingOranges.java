@@ -63,9 +63,9 @@ public class RottingOranges {
 
     private int getGoodOrange(int[][] grid) {
         int goodOrange = 0;
-        for (int i = 0; i < grid.length; i++) {
-            for (int j = 0; j < grid[i].length; j++) {
-                if (grid[i][j] == 1) {
+        for (int[] row : grid) {
+            for (int cell : row) {
+                if (cell == 1) {
                     goodOrange++;
                 }
             }
