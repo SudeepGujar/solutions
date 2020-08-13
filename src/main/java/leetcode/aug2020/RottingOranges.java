@@ -44,28 +44,14 @@ public class RottingOranges {
 
     public int orangesRotting(int[][] grid) {
 
-        int goodOrange = 0;
-        int rottenOrange = 0;
-        for (int i = 0; i < grid.length; i++) {
-            for (int j = 0; j < grid[i].length; j++) {
-                if (grid[i][j] == 1) {
-                    goodOrange++;
-                } else if (grid[i][j] == 2) {
-                    rottenOrange++;
-                }
-            }
-        }
+        int goodOrange = getGoodOrange(grid);
 
         if (goodOrange == 0) {
             return 0;
         }
 
-        if (rottenOrange == 0) {
-            return -1;
-        }
-
         int minutes = 0;
-        int orangesSpoiled = 0;
+        int orangesSpoiled;
         int totalOrangesSpoiled = 0;
         do {
             minutes++;
@@ -75,32 +61,45 @@ public class RottingOranges {
         return goodOrange == totalOrangesSpoiled ? minutes - 1 : -1;
     }
 
+    private int getGoodOrange(int[][] grid) {
+        int goodOrange = 0;
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[i].length; j++) {
+                if (grid[i][j] == 1) {
+                    goodOrange++;
+                }
+            }
+        }
+        return goodOrange;
+    }
+
     private int getOrangesSpoiled(int[][] grid, int minutes) {
         int orangesSpoiled = 0;
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length; j++) {
-                if (grid[i][j] >= 2 && grid[i][j] < 2 + minutes) {
-                    if (i > 0 && grid[i - 1][j] == 1) {
-                        grid[i - 1][j] = 2 + minutes;
-                        orangesSpoiled++;
-                    }
-                    if (j > 0 && grid[i][j - 1] == 1) {
-                        grid[i][j - 1] = 2 + minutes;
-                        orangesSpoiled++;
-                    }
-                    if (i < (grid.length - 1) && grid[i + 1][j] == 1) {
-                        grid[i + 1][j] = 2 + minutes;
-                        orangesSpoiled++;
-                    }
-                    if (j < (grid[i].length - 1) && grid[i][j + 1] == 1) {
-                        grid[i][j + 1] = 2 + minutes;
-                        orangesSpoiled++;
-                    }
-                }
+                orangesSpoiled += getOrangesSpoiledInThisMinute(grid, minutes, i, j);
             }
         }
 
         return orangesSpoiled;
 
+    }
+
+    private int getOrangesSpoiledInThisMinute(int[][] grid, int minutes, int i, int j) {
+        if (grid[i][j] >= 2 && grid[i][j] < 2 + minutes) {
+            return getAdjacentSpoiled(minutes, i > 0, grid, i - 1, j)
+                    + getAdjacentSpoiled(minutes, j > 0, grid, i, j - 1)
+                    + getAdjacentSpoiled(minutes, i < (grid.length - 1), grid, i + 1, j)
+                    + getAdjacentSpoiled(minutes, j < (grid[i].length - 1), grid, i, j + 1);
+        }
+        return 0;
+    }
+
+    private int getAdjacentSpoiled(int minutes, boolean isTrue, int[][] grid, int i, int j) {
+        if (isTrue && grid[i][j] == 1) {
+            grid[i][j] = 2 + minutes;
+            return 1;
+        }
+        return 0;
     }
 }
