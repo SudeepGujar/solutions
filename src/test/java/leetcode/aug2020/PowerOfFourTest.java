@@ -17,4 +17,24 @@ class PowerOfFourTest {
     void example2() {
         assertFalse(powerOfFour.isPowerOfFour(5));
     }
+
+    @Test
+    void example3() {
+        assertFalse(powerOfFour.isPowerOfFour(0));
+    }
+
+    @Test
+    void example4() {
+        assertTrue(powerOfFour.isPowerOfFour(1));
+    }
+
+    @Test
+    void example5() {
+        assertFalse(powerOfFour.isPowerOfFour(2));
+    }
+
+    @Test
+    void example6() {
+        assertFalse(powerOfFour.isPowerOfFour(9));
+    }
 }
