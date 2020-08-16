@@ -7,7 +7,7 @@ plugins {
 group 'challenge.code'
 version '1.0-SNAPSHOT'
 
-sourceCompatibility = 1.9
+sourceCompatibility = 14
 
 repositories {
     mavenCentral()
