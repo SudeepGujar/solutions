@@ -11,4 +11,4 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/SudeepGujar/solutions)
 ![GitHub repo size](https://img.shields.io/github/repo-size/SudeepGujar/solutions)
 
-This project contains solutions to competitve coding challenges
+This project contains solutions to competitive coding challenges
