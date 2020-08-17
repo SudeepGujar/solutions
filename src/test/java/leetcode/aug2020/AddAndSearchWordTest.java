@@ -14,6 +14,7 @@ class AddAndSearchWordTest {
         addAndSearchWord.addWord("bad");
         addAndSearchWord.addWord("mad");
         addAndSearchWord.addWord("dad");
+        addAndSearchWord.addWord("bat");
     }
 
     @Test
@@ -35,4 +36,10 @@ class AddAndSearchWordTest {
     void example4(){
         assertTrue(addAndSearchWord.search("..d"));
     }
+
+    @Test
+    void example5(){
+        assertTrue(addAndSearchWord.search("..t"));
+    }
+
 }
