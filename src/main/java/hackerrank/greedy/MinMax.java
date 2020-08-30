@@ -8,7 +8,7 @@ import java.util.Arrays;
  */
 public class MinMax {
 
-    static int maxMin(int k, int[] arr) {
+    public int maxMin(int k, int[] arr) {
 
         Arrays.sort(arr);
 

@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MinMaxTest {
-
+    private final MinMax minMax= new MinMax();
     @Test
     void example1() {
         int[] arr = {
@@ -17,7 +17,7 @@ class MinMaxTest {
                 1000,
                 20,
                 30};
-        assertEquals(20, MinMax.maxMin(3, arr));
+        assertEquals(20, minMax.maxMin(3, arr));
     }
 
 
@@ -33,7 +33,7 @@ class MinMaxTest {
                 40,
                 100,
                 200};
-        assertEquals(3, MinMax.maxMin(4, arr));
+        assertEquals(3, minMax.maxMin(4, arr));
     }
 
     @Test
@@ -43,7 +43,7 @@ class MinMaxTest {
                 1,
                 2,
                 1};
-        assertEquals(0, MinMax.maxMin(2, arr));
+        assertEquals(0, minMax.maxMin(2, arr));
     }
 
     @Test
@@ -53,7 +53,7 @@ class MinMaxTest {
                 12,
                 21,
                 15};
-        assertEquals(1, MinMax.maxMin(2, arr));
+        assertEquals(1, minMax.maxMin(2, arr));
     }
 
 }
