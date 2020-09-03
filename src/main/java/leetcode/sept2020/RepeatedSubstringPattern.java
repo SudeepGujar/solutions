@@ -15,9 +15,9 @@ public class RepeatedSubstringPattern {
         if(length % i != 0){
             return false;
         }
-        String pattern = s.substring(0, i - 1);
+        String pattern = s.substring(0, i);
         for (int j = 0; j < length; j+=i) {
-            if(!pattern.equals(s.substring(j, j+i-1))){
+            if(!pattern.equals(s.substring(j, j+i))){
                 return false;
             }
         }

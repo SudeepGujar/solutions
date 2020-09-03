@@ -19,6 +19,7 @@ class RepeatedSubstringPatternTest {
         assertFalse(result);
     }
 
+
     @Test
     void example3(){
         boolean result = repeatedSubstringPattern.isRepeatedSubstringPattern("ababab");
@@ -29,6 +30,12 @@ class RepeatedSubstringPatternTest {
     void example4(){
         boolean result = repeatedSubstringPattern.isRepeatedSubstringPattern("abababab");
         assertTrue(result);
+    }
+
+    @Test
+    void example5(){
+        boolean result = repeatedSubstringPattern.isRepeatedSubstringPattern("abac");
+        assertFalse(result);
     }
 
 }
