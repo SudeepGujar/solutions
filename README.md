@@ -12,4 +12,4 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/SudeepGujar/solutions)
 
 
-This project contains solutions to competitive coding challenges
+This project contains solutions to competitive coding challenges.
