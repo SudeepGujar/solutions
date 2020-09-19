@@ -12,4 +12,11 @@ class UniqueEmailTest {
         int result = uniqueEmail.numUniqueEmails(emails);
         assertEquals(2, result);
     }
+
+    @Test
+    void example2() {
+        String[] emails = {"test.email+alex@leetcode.com","test.email.leet+alex@code.com"};
+        int result = uniqueEmail.numUniqueEmails(emails);
+        assertEquals(2, result);
+    }
 }

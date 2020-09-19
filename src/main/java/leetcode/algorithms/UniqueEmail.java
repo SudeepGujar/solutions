@@ -9,7 +9,7 @@ public class UniqueEmail {
                 .map(email-> {
                     String[] split = email.split("@");
                     String name = split[0].split("\\+")[0].replace(".", "");
-                    return name + split[1];
+                    return name + "@" + split[1];
                 })
                 .collect(Collectors.toSet()).size();
     }
